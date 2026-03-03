@@ -159,6 +159,17 @@
             loop();
         });
 
-        window.addEventListener('load', () => {
+          window.addEventListener('load', () => {
             if (video.readyState < 2) loop();
+            // iOS Safari requires a user gesture to unlock autoplay
+            document.addEventListener('touchstart', () => {
+                video.play().catch(() => {});
+            }, { once: true });
+        });
+
+        // iOS Safari sometimes pauses video when tab goes background then returns
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                video.play().catch(() => {});
+            }
         });
