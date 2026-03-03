@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-black">
+
+    <!-- ── Nav ── -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-14 sm:h-16">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="https://www.svgrepo.com/show/499962/music.svg" class="h-7 w-7 sm:h-8 sm:w-8" alt="Logo">
+                    <span class="text-base sm:text-xl font-semibold text-[#F0F8E3]">Marshall Ryan</span>
+                </div>
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-[#F0F8E3] hover:text-gray-300 transition">Home</a>
+                    <a href="#" class="text-[#F0F8E3] hover:text-gray-300 transition">Gallery</a>
+                    <a href="#" class="text-[#F0F8E3] hover:text-gray-300 transition">Contact</a>
+                </div>
+                <!-- Mobile hamburger -->
+                <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center gap-1.5 p-2 focus:outline-none">
+                    <span class="block w-6 h-0.5 bg-[#F0F8E3] transition-all duration-300" id="bar1"></span>
+                    <span class="block w-6 h-0.5 bg-[#F0F8E3] transition-all duration-300" id="bar2"></span>
+                    <span class="block w-6 h-0.5 bg-[#F0F8E3] transition-all duration-300" id="bar3"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-white/10">
+            <div class="px-4 py-4 flex flex-col space-y-1">
+                <a href="#" class="block py-3 px-2 text-[#F0F8E3] hover:text-gray-300 text-lg">Home</a>
+                <a href="#" class="block py-3 px-2 text-[#F0F8E3] hover:text-gray-300 text-lg">Gallery</a>
+                <a href="#" class="block py-3 px-2 text-[#F0F8E3] hover:text-gray-300 text-lg">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Hero ── -->
+    <div id="scroll-driver">
+        <div id="hero-sticky">
+            <video id="src-video" autoplay muted loop playsinline>
+                <source src="hero.mp4" type="video/mp4">
+            </video>
+            <canvas id="video-canvas"></canvas>
+        </div>
+    </div>
+
+    <!-- ── Page content ── -->
+    <div id="page-content">
+
+        <section class="text-[#F0F8E3] py-20 sm:py-32 px-5 sm:px-6">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-3 sm:mb-4">About</p>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase mb-6 sm:mb-8 leading-tight">
+                    Skater.<br>Creator.<br>Filmmaker.
+                </h2>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl">
+                    Marshall Ryan captures the raw energy of street skating through film.
+                    Featuring Jin Yang and Tyzee
+                </p>
+            </div>
+        </section>
+
+        <section class="text-[#F0F8E3] py-20 sm:py-32 px-5 sm:px-6 border-t border-white/10">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-8 sm:mb-12">Gallery</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                    <div class="aspect-square bg-white/5 rounded"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="border-t border-white/10 px-5 py-10 sm:py-12 text-center text-gray-600 text-xs sm:text-sm tracking-widest uppercase">
+            © 2026 Marshall Ryan
+        </footer>
+
+    </div>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
