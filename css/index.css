@@ -113,10 +113,6 @@ html { scroll-behavior: auto; }
         padding: 0 5vw;
         scroll-padding: 0 5vw;
     }
-
-    .carousel-btn {
-        display:none;
-    }
 }
 
 /* ── Project GIF rows ── */
