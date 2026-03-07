@@ -43,10 +43,16 @@
     <!-- ── Hero ── -->
     <div id="scroll-driver">
         <div id="hero-sticky">
-            <video id="src-video" autoplay muted loop playsinline preload="auto">
+            <video id="src-video" autoplay muted loop playsinline>
                 <source src="hero-ready.mp4" type="video/mp4">
             </video>
             <canvas id="video-canvas"></canvas>
+            <!-- iOS play button overlay — hidden once video starts -->
+            <div id="play-overlay" style="display:none; position:absolute; inset:0; z-index:10; align-items:center; justify-content:center; cursor:pointer;">
+                <div style="width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -57,34 +63,52 @@
             <div class="max-w-4xl mx-auto">
                 <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-3 sm:mb-4">About</p>
                 <h2 class="text-3xl sm:text-5xl font-black uppercase mb-6 sm:mb-8 leading-tight">
-                    Photographer.<br>Creator.<br>Filmmaker.
+                    Skater.<br>Creator.<br>Filmmaker.
                 </h2>
                 <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl">
                     Marshall Ryan captures the raw energy of street skating through film.
-                    Featuring Jin Yang and Tyzee
+                    Based wherever the next spot is.
                 </p>
             </div>
         </section>
 
-        <section class="text-[#F0F8E3] py-20 sm:py-32 px-5 sm:px-6 border-t border-white/10">
-            <div class="max-w-4xl mx-auto">
-                <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-8 sm:mb-12">Gallery</p>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                    <div class="aspect-square bg-white/5 rounded"></div>
-                </div>
+        <!-- Gallery Section -->
+        <section id="gallery-section" class="text-[#F0F8E3] py-20 sm:py-32 border-t border-white/10">
+            <div class="max-w-5xl mx-auto px-5 sm:px-6">
+                <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-12 sm:mb-20">Gallery</p>
+                <div id="galleries-list"></div>
             </div>
         </section>
+
+        <!-- Projects Section -->
+        <section id="projects-section" class="text-[#F0F8E3] py-20 sm:py-32 px-5 sm:px-6 border-t border-white/10">
+            <div class="max-w-5xl mx-auto">
+                <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-500 mb-12 sm:mb-20">Work</p>
+                <div id="projects-list"></div>
+            </div>
+        </section>
+
+        <!-- Vimeo Modal -->
+        <div id="vimeo-modal" style="display:none; position:fixed; inset:0; z-index:100; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; padding:20px;">
+            <button id="modal-close" style="position:absolute; top:20px; right:24px; color:white; font-size:2rem; background:none; border:none; cursor:pointer; line-height:1;">&#x2715;</button>
+            <div style="width:90vw; max-width:900px; aspect-ratio:16/9;">
+                <iframe id="modal-iframe" src="" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </div>
 
         <footer class="border-t border-white/10 px-5 py-10 sm:py-12 text-center text-gray-600 text-xs sm:text-sm tracking-widest uppercase">
             © 2026 Marshall Ryan
         </footer>
 
     </div>
+    <!-- Image Lightbox -->
+    <div id="img-lightbox">
+        <button id="img-lightbox-close">&#x2715;</button>
+        <button id="img-lightbox-prev">&#8592;</button>
+        <img id="img-lightbox-img" src="" alt="">
+        <button id="img-lightbox-next">&#8594;</button>
+    </div>
+
     <script src="scripts/index.js"></script>
 </body>
 </html>
